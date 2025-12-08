@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>KT M&S 디지털 명함 - 김영훈</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KT M&S 대경법인 김영훈 과장 디지털 명함. 대구·경북 아파트·오피스텔·산업단지·소상공인 통신 컨설팅. 인터넷·전화·IPTV·하이오더 상담." />
+  <style>
+    :root {
+      --primary: #e60012;   /* KT 레드 느낌 */
+      --primary-dark: #b0000e;
+      --bg: #0f172a;        /* 어두운 배경 */
+      --card-bg: #111827;
+      --text-main: #f9fafb;
+      --text-sub: #9ca3af;
+      --border: #1f2937;
+      --accent: #f97316;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 20px 16px 40px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #020617, #020617, #111827);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 22px 18px 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      backdrop-filter: blur(20px);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(249,250,251,0.1);
+      background: rgba(15,23,42,0.8);
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-bottom: 12px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 0, #f97316, #e60012);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    }
+
+    .profile-main {
+      flex: 1;
+    }
+
+    .name-line {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .title {
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .org {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    .tagline {
+      font-size: 11px;
+      color: var(--accent);
+      margin-top: 6px;
+    }
+
+    .section {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(148,163,184,0.1);
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      letter-spacing: 0.01em;
+      color: #e5e7eb;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .contact-icon {
+      font-size: 15px;
+    }
+
+    .contact-label {
+      width: 52px;
+      color: #6b7280;
+      font-size: 11px;
+    }
+
+    .contact-value a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .contact-value a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-group {
+      display: grid;
+      grid-template-columns: 1.7fr 1.3fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #f9fafb;
+      border-color: rgba(248,250,252,0.12);
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(220,38,38,0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(15,23,42,0.9);
+      color: #f9fafb;
+      border-color: rgba(148,163,184,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border-color: rgba(148,163,184,0.5);
+    }
+
+    .btn span {
+      margin-left: 4px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--text-sub);
+      background: rgba(15,23,42,0.7);
+    }
+
+    .notes {
+      font-size: 11px;
+      color: var(--text-sub);
+      line-height: 1.4;
+    }
+
+    .footer {
+      margin-top: 14px;
+      font-size: 10px;
+      color: #6b7280;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 380px) {
+      .btn-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <!-- 상단 상태 뱃지 -->
+      <div class="badge">
+        <span class="badge-dot"></span>
+        실시간 통신 컨설팅 가능
+      </div>
+
+      <!-- 프로필 영역 -->
+      <div class="header">
+        <div class="avatar">
+          <!-- 이니셜 -->
+          영훈
+        </div>
+        <div class="profile-main">
+          <div class="name-line">
+            <!-- 이름 -->
+            <div class="name">김영훈</div>
+            <!-- 직책 -->
+            <div class="title">과장 · B2B 통신영업</div>
+          </div>
+          <!-- 소속 -->
+          <div class="org">KT M&S 대경법인 / 대구·경북 전담</div>
+          <!-- 한 줄 USP -->
+          <div class="tagline">아파트·오피스텔·산단·매장 통신, 한 번에 컨설팅해 드립니다.</div>
+        </div>
+      </div>
+
+      <!-- 연락처 정보 -->
+      <div class="section">
+        <div class="section-title">연락처</div>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-label">휴대폰</div>
+            <div class="contact-value">
+              <!-- 전화번호 (표시 + 링크 일치) -->
+              <a href="tel:01082909971">010-8290-9971</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-label">이메일</div>
+            <div class="contact-value">
+              <a href="mailto:1248715@kt-mns.com">1248715@kt-mns.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-label">지역</div>
+            <div class="contact-value">
+              대구·경북 전 지역 방문 상담
+            </div>
+          </li>
+        </ul>
+
+        <!-- 주요 버튼: 연락처 저장 + 통화 -->
+        <div class="btn-group">
+          <!-- vCard(.vcf) 실제 경로: 예시로 kimyounghoon.vcf 로 변경 -->
+          <a href="https://kt-mns.com/vcards/kimyounghoon.vcf" class="btn btn-primary">
+            📇 <span>연락처에 저장</span>
+          </a>
+          <a href="tel:01082909971" class="btn btn-secondary">
+            ☎️ <span>바로 전화</span>
+          </a>
+        </div>
+
+        <!-- 부가 버튼: 카카오톡 / 상담요청 -->
+        <div class="btn-group" style="margin-top:8px;">
+          <!-- 카카오톡 채널/오픈채팅 링크 -->
+          <a href="http://pf.kakao.com/_xaXbrn" class="btn btn-outline">
+            💬 <span>카카오 상담</span>
+          </a>
+          <!-- 상담/견적 요청: 현재는 홈페이지 메인으로 연결 -->
+          <a href="https://kt-mns.com/" class="btn btn-outline">
+            📌 <span>상담·견적 요청</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 제공 서비스 -->
+      <div class="section">
+        <div class="section-title">제공 서비스</div>
+        <div class="chips">
+          <div class="chip">아파트·오피스텔 관리사무소 전용 인터넷/IPTV</div>
+          <div class="chip">산업단지 기업 통신 패키지</div>
+          <div class="chip">소상공인 매장 인터넷·전화</div>
+          <div class="chip">KT 하이오더/포스 연동 컨설팅</div>
+          <div class="chip">기존 회선 재약정·비용 절감 진단</div>
+        </div>
+      </div>
+
+      <!-- 안내 문구 -->
+      <div class="section">
+        <div class="section-title">안내</div>
+        <p class="notes">
+          위 버튼으로 연락처를 저장해 두시면, 설치 일정 조율·요금 상담·추가 문의를 편하게 도와드리겠습니다.<br />
+          <br />
+          통화가 어려우신 경우에는 <strong>카카오 상담</strong> 또는 <strong>상담·견적 요청</strong> 버튼을 통해
+          간단히 남겨 주시면, 확인 후 우선적으로 연락드리겠습니다.
+        </p>
+      </div>
+
+      <div class="footer">
+        본 페이지는 KT 대경법인 영업담당자의 안내를 위해 제공되며, 상담 요청 시 수집되는 정보는
+        통신 상품 안내 및 설치 상담 외의 목적으로 사용되지 않습니다.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
