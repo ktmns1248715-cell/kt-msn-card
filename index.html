@@ -51,11 +51,13 @@
 
     .header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
     .avatar {
-      width: 56px; height: 56px; border-radius: 18px;
-      background: radial-gradient(circle at 30% 0, #f97316, #e60012);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .profile-main { flex: 1; }
 
@@ -93,6 +95,64 @@
     }
     .team-top { display: flex; justify-content: space-between; align-items: center; }
 
+    /* 서비스 칩 영역 정리 */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .chip {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.35);
+      color: var(--text-sub);
+      line-height: 1.3;
+    }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--text-sub);
+    }
+
+    /* ▶ 모바일 최적화 (가로 480px 이하) */
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 10px 28px;
+      }
+      .card {
+        padding: 18px 14px 18px;
+        border-radius: 18px;
+      }
+      .avatar {
+        width: 48px;
+        height: 48px;
+      }
+      .name { font-size: 16px; }
+      .org, .title { font-size: 11px; }
+      .tagline { font-size: 10px; }
+      .btn {
+        padding: 7px 8px;
+        font-size: 11px;
+      }
+      .team-card {
+        padding: 8px 9px;
+      }
+      .section {
+        margin-top: 16px;
+        padding-top: 12px;
+      }
+      .footer {
+        margin-top: 16px;
+        font-size: 10px;
+      }
+    }
+
+    /* ▶ 아주 작은 화면(380px 이하)에서 버튼 1열 */
     @media (max-width: 380px) {
       .btn-grid-2x2 { grid-template-columns: 1fr; }
     }
@@ -106,7 +166,9 @@
       <div class="badge"><span class="badge-dot"></span>실시간 통신 컨설팅 가능</div>
 
       <div class="header">
-        <div class="avatar">KT</div>
+        <div class="avatar">
+          <img src="images/mns.png" alt="KT Logo" style="width:100%; height:100%; object-fit:contain;">
+        </div>
         <div class="profile-main">
           <div class="name">KT M&S 대구프론티어</div>
           <div class="org">대구·경북 통신 컨설팅 센터</div>
@@ -143,7 +205,6 @@
 
       <div class="section">
         <div class="section-title">팀 연락처</div>
-
         <div class="team-grid">
 
           <div class="team-card">
