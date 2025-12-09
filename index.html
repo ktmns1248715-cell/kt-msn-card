@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>KT M&S 대구프론티어 · 디지털 명함</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="KT M&S 대구프론티어 디지털 명함. 대구·경북 아파트·오피스텔·산업단지·소상공인 통신 컨설팅 센터. 인터넷·전화·IPTV·하이오더 상담 및 팀 명함." />
+  <meta name="description" content="KT M&S 대구프론티어 디지털 명함. 대구·경북 아파트·오피스텔·산업단지·소상공인 통신 컨설팅 센터." />
   <style>
     :root {
       --primary: #e60012;
@@ -91,14 +91,10 @@
       background: rgba(15,23,42,0.8); padding: 9px 10px; border-radius: 14px;
       border: 1px solid rgba(148,163,184,0.25);
     }
-    .team-top { display: flex; justify-content: space-between; }
-
-    .personal-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;
-    }
+    .team-top { display: flex; justify-content: space-between; align-items: center; }
 
     @media (max-width: 380px) {
-      .btn-grid-2x2, .personal-grid { grid-template-columns: 1fr; }
+      .btn-grid-2x2 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -109,7 +105,6 @@
 
       <div class="badge"><span class="badge-dot"></span>실시간 통신 컨설팅 가능</div>
 
-      <!-- 프로필 -->
       <div class="header">
         <div class="avatar">KT</div>
         <div class="profile-main">
@@ -120,10 +115,8 @@
         </div>
       </div>
 
-      <!-- 대표 정보 -->
       <div class="section">
         <div class="section-title">센터 대표 정보</div>
-
         <ul class="contact-list">
           <li class="contact-item"><div class="contact-label">이메일</div><a href="mailto:1248715@ktmns.com">1248715@ktmns.com</a></li>
           <li class="contact-item"><div class="contact-label">홈페이지</div><a href="https://kt-mns.com">https://kt-mns.com</a></li>
@@ -131,89 +124,88 @@
         </ul>
 
         <div class="btn-grid-2x2">
-          <a class="btn btn-outline" href="http://pf.kakao.com/_xaXbrn" target="_blank">💬 공식 채널추가</a>
-          <a class="btn btn-secondary" href="http://pf.kakao.com/_xaXbrn/chat" target="_blank">💬 실시간 채팅상담</a>
-          <a class="btn btn-outline" href="https://kt-mns.com" target="_blank">📝 홈페이지상담&견적신청</a>
+          <a class="btn btn-outline" href="http://pf.kakao.com/_xaXbrn">💬 공식 채널추가</a>
+          <a class="btn btn-secondary" href="http://pf.kakao.com/_xaXbrn/chat">💬 실시간 채팅상담</a>
+          <a class="btn btn-outline" href="https://kt-mns.com">📝 상담&견적신청</a>
           <a class="btn btn-primary" href="vcards/team.vcf">📇 연락처 전체저장</a>
         </div>
       </div>
 
-      <!-- 서비스 -->
       <div class="section">
         <div class="section-title">제공 서비스</div>
         <div class="chips">
-          <div class="chip">아파트·오피스텔·관리사무소 인터넷 / IPTV</div>
+          <div class="chip">아파트·오피스텔 관리사무소 인터넷/IPTV</div>
           <div class="chip">산업단지·법인기업 특판 패키지</div>
           <div class="chip">소상공인 매장 인터넷·전화·POS·하이오더</div>
-          <div class="chip">기존 회선 진단 · 재약정 · 비용 절감 · 컨설팅</div>
+          <div class="chip">기존 회선 진단 · 재약정 · 비용 절감 컨설팅</div>
         </div>
       </div>
 
-      <!-- 팀 연락처 -->
       <div class="section">
         <div class="section-title">팀 연락처</div>
 
         <div class="team-grid">
 
           <div class="team-card">
-            <div class="team-top"><b>김현태</b><span>센터장</span></div>
+            <div class="team-top">
+              <b>김현태 센터장</b>
+              <a class="btn btn-outline" href="vcards/kimhyuntae.vcf" style="font-size:11px;padding:3px 8px;">📇 연락처 저장</a>
+            </div>
             📞 <a href="tel:01045830663">010-4583-0663</a>
           </div>
 
           <div class="team-card">
-            <div class="team-top"><b>박병규</b><span>차장</span></div>
+            <div class="team-top">
+              <b>박병규 차장</b>
+              <a class="btn btn-outline" href="vcards/parkbyungkyu.vcf" style="font-size:11px;padding:3px 8px;">📇 연락처 저장</a>
+            </div>
             📞 <a href="tel:01033330859">010-3333-0859</a>
           </div>
 
           <div class="team-card">
-            <div class="team-top"><b>서동환</b><span>과장</span></div>
+            <div class="team-top">
+              <b>서동환 과장</b>
+              <a class="btn btn-outline" href="vcards/seodonghwan.vcf" style="font-size:11px;padding:3px 8px;">📇 연락처 저장</a>
+            </div>
             📞 <a href="tel:01088713121">010-8871-3121</a>
           </div>
 
           <div class="team-card">
-            <div class="team-top"><b>김영훈</b><span>과장</span></div>
+            <div class="team-top">
+              <b>김영훈 과장</b>
+              <a class="btn btn-outline" href="vcards/kimyounghoon.vcf" style="font-size:11px;padding:3px 8px;">📇 연락처 저장</a>
+            </div>
             📞 <a href="tel:01082909971">010-8290-9971</a>
           </div>
 
           <div class="team-card">
-            <div class="team-top"><b>장준성</b><span>과장</span></div>
+            <div class="team-top">
+              <b>장준성 과장</b>
+              <a class="btn btn-outline" href="vcards/jangjunsung.vcf" style="font-size:11px;padding:3px 8px;">📇 연락처 저장</a>
+            </div>
             📞 <a href="tel:01062847934">010-6284-7934</a>
           </div>
 
           <div class="team-card">
-            <div class="team-top"><b>도승현</b><span>대리</span></div>
+            <div class="team-top">
+              <b>도승현 대리</b>
+              <a class="btn btn-outline" href="vcards/doseunghyun.vcf" style="font-size:11px;padding:3px 8px;">📇 연락처 저장</a>
+            </div>
             📞 <a href="tel:01090369952">010-9036-9952</a>
           </div>
 
         </div>
       </div>
 
-      <!-- 개인별 연락처 저장 -->
-      <div class="section">
-        <div class="section-title">개인 연락처 저장</div>
-
-        <div class="personal-grid">
-          <a class="btn btn-outline" href="vcards/kimhyuntae.vcf">📇 김현태 저장</a>
-          <a class="btn btn-outline" href="vcards/parkbyungkyu.vcf">📇 박병규 저장</a>
-          <a class="btn btn-outline" href="vcards/seodonghwan.vcf">📇 서동환 저장</a>
-          <a class="btn btn-outline" href="vcards/kimyounghoon.vcf">📇 김영훈 저장</a>
-          <a class="btn btn-outline" href="vcards/jangjunsung.vcf">📇 장준성 저장</a>
-          <a class="btn btn-outline" href="vcards/doseunghyun.vcf">📇 도승현 저장</a>
-        </div>
-      </div>
-
       <div class="footer">
         KT M&S 대구프론티어센터에서는<br>
         대구·경북 개인/소상공인/법인사업체 등<br>
-        통신상품 요금비교·일정조율·설치·문의<br>
-        원스톱진행 전담부서 운영되고있습니다.<br>
-        신청주신 정보에 대해서는 개인정보 보호로<br>
-        상담외 다른용도로 사용되지 않습니다.<br>
-        사용 중 인 기존 회선 점검이 필요하시면<br>
-        상단버튼 중 편한채널을 통해 연락남겨 주시면됩니다.<br>
-        특히 <strong>팀 연락처 저장</strong>을 해두시면,<br /> 
-        추후 입주 문의·증설·이전 설치 시<br>
-        바로 담당자에게 연락하실 수 있습니다.
+        통신상품 비교·일정조율·설치까지<br>
+        원스톱 진행 전담부서를 운영합니다.<br><br>
+        개인정보는 상담 목적 외 타 용도로 사용되지 않습니다.<br>
+        특히 <strong>팀 연락처 저장</strong>을 해두시면,<br>
+        추후 이전·증설·입주 문의 시<br>
+        즉시 담당자와 연결됩니다.
       </div>
 
     </div>
