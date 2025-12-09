@@ -1,9 +1,0 @@
-.avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 18px;
-  background: none; /* 배경 제거 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
