@@ -7,22 +7,16 @@
   <meta name="description" content="KT M&S 대구프론티어 디지털 명함. 대구·경북 아파트·오피스텔·산업단지·소상공인 통신 컨설팅 센터. 인터넷·전화·IPTV·하이오더 상담 및 팀 명함." />
   <style>
     :root {
-      --primary: #e60012;   /* KT 레드 느낌 */
+      --primary: #e60012;
       --primary-dark: #b0000e;
-      --bg: #0f172a;        /* 어두운 배경 */
+      --bg: #0f172a;
       --card-bg: #111827;
       --text-main: #f9fafb;
       --text-sub: #9ca3af;
       --border: #1f2937;
       --accent: #f97316;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
       background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
@@ -32,12 +26,7 @@
       justify-content: center;
       padding: 20px 16px 40px;
     }
-
-    .wrapper {
-      width: 100%;
-      max-width: 480px;
-    }
-
+    .wrapper { width: 100%; max-width: 480px; }
     .card {
       background: linear-gradient(145deg, #020617, #020617, #111827);
       border-radius: 24px;
@@ -46,7 +35,6 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.6);
       backdrop-filter: blur(20px);
     }
-
     .badge {
       display: inline-flex;
       align-items: center;
@@ -59,405 +47,166 @@
       color: var(--text-sub);
       margin-bottom: 12px;
     }
+    .badge-dot { width: 6px; height: 6px; border-radius: 999px; background: #22c55e; }
 
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
+    .header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
     .avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
+      width: 56px; height: 56px; border-radius: 18px;
       background: radial-gradient(circle at 30% 0, #f97316, #e60012);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.7);
     }
+    .profile-main { flex: 1; }
 
-    .profile-main {
-      flex: 1;
-    }
+    .name { font-size: 18px; font-weight: 700; }
+    .org, .title { font-size: 12px; color: var(--text-sub); }
+    .tagline { font-size: 11px; color: var(--accent); margin-top: 6px; line-height: 1.4; }
 
-    .name-line {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      margin-bottom: 2px;
-    }
+    .section { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(148,163,184,0.1); }
+    .section-title { font-size: 13px; font-weight: 600; margin-bottom: 10px; color: #e5e7eb; }
 
-    .name {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .title {
-      font-size: 12px;
-      color: var(--text-sub);
-    }
-
-    .org {
-      font-size: 12px;
-      color: var(--text-sub);
-    }
-
-    .tagline {
-      font-size: 11px;
-      color: var(--accent);
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    .section {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(148,163,184,0.1);
-    }
-
-    .section-title {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      letter-spacing: 0.01em;
-      color: #e5e7eb;
-    }
-
-    .contact-list {
-      list-style: none;
-      font-size: 13px;
-      color: var(--text-sub);
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .contact-icon {
-      font-size: 15px;
-    }
-
-    .contact-label {
-      width: 60px;
-      color: #6b7280;
-      font-size: 11px;
-    }
-
-    .contact-value a {
-      color: var(--text-main);
-      text-decoration: none;
-    }
-
-    .contact-value a:hover {
-      text-decoration: underline;
-    }
+    .contact-list { list-style: none; font-size: 13px; color: var(--text-sub); }
+    .contact-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .contact-label { width: 60px; font-size: 11px; color: #6b7280; }
 
     .btn-grid-2x2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 10px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;
     }
-
     .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      border: 1px solid transparent;
-      text-decoration: none;
-      white-space: nowrap;
-      cursor: pointer;
-      text-align: center;
-      line-height: 1.3;
+      display: inline-flex; justify-content: center; align-items: center;
+      padding: 8px 10px; border-radius: 999px; font-size: 12px;
+      border: 1px solid transparent; cursor: pointer;
+      text-decoration: none; color: var(--text-main);
     }
-
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #f9fafb;
-      border-color: rgba(248,250,252,0.12);
-      font-weight: 600;
-      box-shadow: 0 8px 20px rgba(220,38,38,0.4);
+      border-color: rgba(248,250,252,0.12); font-weight: 600;
     }
+    .btn-secondary { background: rgba(15,23,42,0.9); border-color: rgba(148,163,184,0.35); }
+    .btn-outline { background: transparent; border-color: rgba(148,163,184,0.5); }
 
-    .btn-secondary {
-      background: rgba(15,23,42,0.9);
-      color: #f9fafb;
-      border-color: rgba(148,163,184,0.35);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text-main);
-      border-color: rgba(148,163,184,0.5);
-    }
-
-    .btn span {
-      margin-left: 4px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-    }
-
-    .chip {
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      color: var(--text-sub);
-      background: rgba(15,23,42,0.7);
-    }
-
-    .notes {
-      font-size: 11px;
-      color: var(--text-sub);
-      line-height: 1.4;
-    }
-
-    .footer {
-      margin-top: 14px;
-      font-size: 10px;
-      color: #6b7280;
-      text-align: left;
-      line-height: 1.4;
-    }
-
-    /* 팀 명함 섹션 */
-    .team-intro {
-      font-size: 11px;
-      color: var(--text-sub);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
+    .team-grid { display: grid; gap: 8px; }
     .team-card {
-      border-radius: 14px;
+      background: rgba(15,23,42,0.8); padding: 9px 10px; border-radius: 14px;
       border: 1px solid rgba(148,163,184,0.25);
-      background: rgba(15,23,42,0.8);
-      padding: 9px 10px;
     }
+    .team-top { display: flex; justify-content: space-between; }
 
-    .team-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 3px;
-    }
-
-    .team-name {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .team-role {
-      font-size: 11px;
-      color: var(--text-sub);
-    }
-
-    .team-phone {
-      font-size: 12px;
-      color: var(--text-sub);
+    .personal-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;
     }
 
     @media (max-width: 380px) {
-      .btn-grid-2x2 {
-        grid-template-columns: 1fr;
-      }
+      .btn-grid-2x2, .personal-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
   <div class="wrapper">
     <div class="card">
-      <!-- 상단 상태 뱃지 -->
-      <div class="badge">
-        <span class="badge-dot"></span>
-        실시간 통신 컨설팅 가능
-      </div>
 
-      <!-- 센터 프로필 -->
+      <div class="badge"><span class="badge-dot"></span>실시간 통신 컨설팅 가능</div>
+
+      <!-- 프로필 -->
       <div class="header">
-        <div class="avatar">
-          KT
-        </div>
+        <div class="avatar">KT</div>
         <div class="profile-main">
-          <div class="name-line">
-            <div class="name">KT M&S 대구프론티어</div>
-          </div>
+          <div class="name">KT M&S 대구프론티어</div>
           <div class="org">대구·경북 통신 컨설팅 센터</div>
           <div class="title">아파트·오피스텔·산단·소상공인 전담</div>
-          <div class="tagline">
-            인터넷 · 전화 · IPTV · 하이오더까지<br />
-            한 번에 비교·진단·설치까지 도와드립니다.
-          </div>
+          <div class="tagline">인터넷 · 전화 · IPTV · 하이오더까지<br>한 번에 비교·진단·설치까지 도와드립니다.</div>
         </div>
       </div>
 
-      <!-- 대표 연락처/센터 정보 -->
+      <!-- 대표 정보 -->
       <div class="section">
         <div class="section-title">센터 대표 정보</div>
+
         <ul class="contact-list">
-          <li class="contact-item">
-            <div class="contact-icon">✉️</div>
-            <div class="contact-label">이메일</div>
-            <div class="contact-value">
-              <a href="mailto:1248715@ktmns.com">1248715@ktmns.com</a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="contact-icon">🌐</div>
-            <div class="contact-label">홈페이지</div>
-            <div class="contact-value">
-              <a href="https://kt-mns.com" target="_blank">https://kt-mns.com</a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="contact-icon">📍</div>
-            <div class="contact-label">지역</div>
-            <div class="contact-value">
-              대구·경북 전 지역 방문 상담
-            </div>
-          </li>
+          <li class="contact-item"><div class="contact-label">이메일</div><a href="mailto:1248715@ktmns.com">1248715@ktmns.com</a></li>
+          <li class="contact-item"><div class="contact-label">홈페이지</div><a href="https://kt-mns.com">https://kt-mns.com</a></li>
+          <li class="contact-item"><div class="contact-label">지역</div>대구·경북 전 지역</li>
         </ul>
 
-        <!-- 4개 버튼 (2x2) -->
         <div class="btn-grid-2x2">
-          <!-- 1. 카카오톡 채널 추가 -->
-          <a href="http://pf.kakao.com/_xaXbrn" class="btn btn-outline" target="_blank">
-            💬 <span>카카오톡 채널 추가</span>
-          </a>
-          <!-- 2. 실시간 채팅 상담 -->
-          <a href="http://pf.kakao.com/_xaXbrn/chat" class="btn btn-secondary" target="_blank">
-            💬 <span>실시간 채팅 상담</span>
-          </a>
-          <!-- 3. 공식홈페이지 견적&상담요청 -->
-          <a href="https://kt-mns.com" class="btn btn-outline" target="_blank">
-            📝 <span>공식홈페이지 견적·상담</span>
-          </a>
-        <!-- 4. 팀 연락처 저장 (team.vcf) -->
-<a href="vcards/team.vcf" class="btn btn-primary">
-  📇 <span>팀 연락처 저장</span>
-</a>
-
+          <a class="btn btn-outline" href="http://pf.kakao.com/_xaXbrn" target="_blank">💬 카카오톡 채널</a>
+          <a class="btn btn-secondary" href="http://pf.kakao.com/_xaXbrn/chat" target="_blank">💬 실시간 상담</a>
+          <a class="btn btn-outline" href="https://kt-mns.com" target="_blank">📝 홈페이지 상담</a>
+          <a class="btn btn-primary" href="vcards/team.vcf">📇 팀 연락처 저장</a>
         </div>
       </div>
 
-      <!-- 제공 서비스 -->
+      <!-- 서비스 -->
       <div class="section">
         <div class="section-title">제공 서비스</div>
         <div class="chips">
           <div class="chip">아파트·오피스텔 관리사무소 인터넷/IPTV</div>
           <div class="chip">산업단지 기업 통신 패키지</div>
           <div class="chip">소상공인 매장 인터넷·전화·POS·하이오더</div>
-          <div class="chip">기존 회선 진단 · 재약정 · 비용 절감 컨설팅</div>
+          <div class="chip">기존 회선 진단 · 재약정 · 비용 절감</div>
         </div>
       </div>
 
-      <!-- 팀 명함 섹션 -->
+      <!-- 팀 연락처 -->
       <div class="section">
         <div class="section-title">팀 연락처</div>
-        <p class="team-intro">
-          아래 담당자 중 편하신 분께 직접 연락 주셔도 되고,<br />
-          상단의 <strong>팀 연락처 저장</strong> 버튼으로 한 번에 연락처를 저장하실 수도 있습니다.
-        </p>
+
         <div class="team-grid">
-          <!-- 1. 김현태 센터장 -->
+
           <div class="team-card">
-            <div class="team-top">
-              <div class="team-name">김현태</div>
-              <div class="team-role">센터장</div>
-            </div>
-            <div class="team-phone">📞 <a href="tel:01045830663">010-4583-0663</a></div>
+            <div class="team-top"><b>김현태</b><span>센터장</span></div>
+            📞 <a href="tel:01045830663">010-4583-0663</a>
           </div>
 
-          <!-- 2. 박병규 차장 -->
           <div class="team-card">
-            <div class="team-top">
-              <div class="team-name">박병규</div>
-              <div class="team-role">차장</div>
-            </div>
-            <div class="team-phone">📞 <a href="tel:01033330859">010-3333-0859</a></div>
+            <div class="team-top"><b>박병규</b><span>차장</span></div>
+            📞 <a href="tel:01033330859">010-3333-0859</a>
           </div>
 
-          <!-- 3. 서동환 과장 -->
           <div class="team-card">
-            <div class="team-top">
-              <div class="team-name">서동환</div>
-              <div class="team-role">과장</div>
-            </div>
-            <div class="team-phone">📞 <a href="tel:01088713121">010-8871-3121</a></div>
+            <div class="team-top"><b>서동환</b><span>과장</span></div>
+            📞 <a href="tel:01088713121">010-8871-3121</a>
           </div>
 
-          <!-- 4. 김영훈 과장 -->
           <div class="team-card">
-            <div class="team-top">
-              <div class="team-name">김영훈</div>
-              <div class="team-role">과장</div>
-            </div>
-            <div class="team-phone">📞 <a href="tel:01082909971">010-8290-9971</a></div>
+            <div class="team-top"><b>김영훈</b><span>과장</span></div>
+            📞 <a href="tel:01082909971">010-8290-9971</a>
           </div>
 
-          <!-- 5. 장준성 과장 -->
           <div class="team-card">
-            <div class="team-top">
-              <div class="team-name">장준성</div>
-              <div class="team-role">과장</div>
-            </div>
-            <div class="team-phone">📞 <a href="tel:01062847934">010-6284-7934</a></div>
+            <div class="team-top"><b>장준성</b><span>과장</span></div>
+            📞 <a href="tel:01062847934">010-6284-7934</a>
           </div>
 
-          <!-- 6. 도승현 대리 -->
           <div class="team-card">
-            <div class="team-top">
-              <div class="team-name">도승현</div>
-              <div class="team-role">대리</div>
-            </div>
-            <div class="team-phone">📞 <a href="tel:01090369952">010-9036-9952</a></div>
+            <div class="team-top"><b>도승현</b><span>대리</span></div>
+            📞 <a href="tel:01090369952">010-9036-9952</a>
           </div>
+
         </div>
       </div>
 
-      <!-- 안내 문구 -->
+      <!-- 개인별 연락처 저장 -->
       <div class="section">
-        <div class="section-title">안내</div>
-        <p class="notes">
-          설치 일정 조율, 요금 비교, 기존 회선 점검이 필요하시면<br />
-          상단 버튼 중 편한 채널을 통해 연락 남겨 주시면 됩니다.<br /><br />
-          특히 <strong>팀 연락처 저장</strong>을 해두시면,<br />
-          추후 입주 문의·증설·이전 설치 시 바로 담당자에게 연락하실 수 있습니다.
-        </p>
+        <div class="section-title">개인 연락처 저장</div>
+
+        <div class="personal-grid">
+          <a class="btn btn-outline" href="vcards/kimhyuntae.vcf">📇 김현태 저장</a>
+          <a class="btn btn-outline" href="vcards/parkbyungkyu.vcf">📇 박병규 저장</a>
+          <a class="btn btn-outline" href="vcards/seodonghwan.vcf">📇 서동환 저장</a>
+          <a class="btn btn-outline" href="vcards/kimyounghoon.vcf">📇 김영훈 저장</a>
+          <a class="btn btn-outline" href="vcards/jangjunsung.vcf">📇 장준성 저장</a>
+          <a class="btn btn-outline" href="vcards/doseunghyun.vcf">📇 도승현 저장</a>
+        </div>
       </div>
 
       <div class="footer">
-        본 페이지는 KT M&S 대구프론티어의 통신 상품 안내를 위해 제공되며,<br />
-        상담 요청 시 수집되는 정보는 통신 상품 안내 및 설치 상담 외의 목적으로 사용되지 않습니다.
+        본 페이지는 KT M&S 대구프론티어의 통신 상품 안내용이며<br>
+        상담 정보는 통신 설치·문의 외 다른 용도로 사용되지 않습니다.
       </div>
+
     </div>
   </div>
 </body>
