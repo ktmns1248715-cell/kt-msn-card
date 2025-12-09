@@ -2,9 +2,9 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>KT M&S 디지털 명함 - 김영훈</title>
+  <title>KT M&S 대구프론티어 · 디지털 명함</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="KT M&S 대경법인 김영훈 과장 디지털 명함. 대구·경북 아파트·오피스텔·산업단지·소상공인 통신 컨설팅. 인터넷·전화·IPTV·하이오더 상담." />
+  <meta name="description" content="KT M&S 대구프론티어 디지털 명함. 대구·경북 아파트·오피스텔·산업단지·소상공인 통신 컨설팅 센터. 인터넷·전화·IPTV·하이오더 상담 및 팀 명함." />
   <style>
     :root {
       --primary: #e60012;   /* KT 레드 느낌 */
@@ -99,12 +99,12 @@
     }
 
     .name {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
     }
 
     .title {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-sub);
     }
 
@@ -117,6 +117,7 @@
       font-size: 11px;
       color: var(--accent);
       margin-top: 6px;
+      line-height: 1.4;
     }
 
     .section {
@@ -151,7 +152,7 @@
     }
 
     .contact-label {
-      width: 52px;
+      width: 60px;
       color: #6b7280;
       font-size: 11px;
     }
@@ -165,9 +166,9 @@
       text-decoration: underline;
     }
 
-    .btn-group {
+    .btn-grid-2x2 {
       display: grid;
-      grid-template-columns: 1.7fr 1.3fr;
+      grid-template-columns: 1fr 1fr;
       gap: 8px;
       margin-top: 10px;
     }
@@ -183,6 +184,8 @@
       text-decoration: none;
       white-space: nowrap;
       cursor: pointer;
+      text-align: center;
+      line-height: 1.3;
     }
 
     .btn-primary {
@@ -239,8 +242,51 @@
       line-height: 1.4;
     }
 
+    /* 팀 명함 섹션 */
+    .team-intro {
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .team-card {
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.25);
+      background: rgba(15,23,42,0.8);
+      padding: 9px 10px;
+    }
+
+    .team-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .team-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .team-role {
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    .team-phone {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
     @media (max-width: 380px) {
-      .btn-group {
+      .btn-grid-2x2 {
         grid-template-columns: 1fr;
       }
     }
@@ -255,43 +301,40 @@
         실시간 통신 컨설팅 가능
       </div>
 
-      <!-- 프로필 영역 -->
+      <!-- 센터 프로필 -->
       <div class="header">
         <div class="avatar">
-          <!-- 이니셜 -->
           KT
         </div>
         <div class="profile-main">
           <div class="name-line">
-            <!-- 이름 -->
-            <div class="name">김영훈</div>
-            <!-- 직책 -->
-            <div class="title">과장 · B2B 통신영업</div>
+            <div class="name">KT M&S 대구프론티어</div>
           </div>
-          <!-- 소속 -->
-          <div class="org">KT M&S 대경법인 / 대구·경북 전담</div>
-          <!-- 한 줄 USP -->
-          <div class="tagline">아파트·오피스텔·산단·매장 통신, <br />한 번에 컨설팅해 드립니다.</div>
+          <div class="org">대구·경북 통신 컨설팅 센터</div>
+          <div class="title">아파트·오피스텔·산단·소상공인 전담</div>
+          <div class="tagline">
+            인터넷 · 전화 · IPTV · 하이오더까지<br />
+            한 번에 비교·진단·설치까지 도와드립니다.
+          </div>
         </div>
       </div>
 
-      <!-- 연락처 정보 -->
+      <!-- 대표 연락처/센터 정보 -->
       <div class="section">
-        <div class="section-title">연락처</div>
+        <div class="section-title">센터 대표 정보</div>
         <ul class="contact-list">
-          <li class="contact-item">
-            <div class="contact-icon">📞</div>
-            <div class="contact-label">휴대폰</div>
-            <div class="contact-value">
-              <!-- 전화번호 (표시 + 링크 일치) -->
-              <a href="tel:01082909971">010-8290-9971</a>
-            </div>
-          </li>
           <li class="contact-item">
             <div class="contact-icon">✉️</div>
             <div class="contact-label">이메일</div>
             <div class="contact-value">
-              <a href="mailto:1248715@kt-mns.com">1248715@kt-mns.com</a>
+              <a href="mailto:1248715@ktmns.com">1248715@ktmns.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-label">홈페이지</div>
+            <div class="contact-value">
+              <a href="https://kt-mns.com" target="_blank">https://kt-mns.com</a>
             </div>
           </li>
           <li class="contact-item">
@@ -303,27 +346,24 @@
           </li>
         </ul>
 
-        <!-- 주요 버튼: 연락처 저장 + 통화 -->
-        <div class="btn-group">
-          <!-- vCard(.vcf) 실제 경로: 예시로 kimyounghoon.vcf 로 변경 -->
-         <a href="vcards/kimyounghoon.vcf" class="btn btn-primary">
-  📇 <span>연락처에 저장</span>
-</a>
+        <!-- 4개 버튼 (2x2) -->
+        <div class="btn-grid-2x2">
+          <!-- 1. 카카오톡 채널 추가 -->
+          <a href="http://pf.kakao.com/_xaXbrn" class="btn btn-outline" target="_blank">
+            💬 <span>카카오톡 채널 추가</span>
           </a>
-          <a href="tel:01082909971" class="btn btn-secondary">
-            ☎️ <span>바로 전화</span>
+          <!-- 2. 실시간 채팅 상담 -->
+          <a href="http://pf.kakao.com/_xaXbrn/chat" class="btn btn-secondary" target="_blank">
+            💬 <span>실시간 채팅 상담</span>
           </a>
-        </div>
-
-        <!-- 부가 버튼: 카카오톡 / 상담요청 -->
-        <div class="btn-group" style="margin-top:8px;">
-          <!-- 카카오톡 채널/오픈채팅 링크 -->
-          <a href="http://pf.kakao.com/_xaXbrn" class="btn btn-outline">
-            💬 <span>카카오 상담</span>
+          <!-- 3. 공식홈페이지 견적&상담요청 -->
+          <a href="https://kt-mns.com" class="btn btn-outline" target="_blank">
+            📝 <span>공식홈페이지 견적·상담</span>
           </a>
-          <!-- 상담/견적 요청: 현재는 홈페이지 메인으로 연결 -->
-          <a href="https://kt-mns.com/" class="btn btn-outline">
-            📌 <span>상담·견적 요청</span>
+          <!-- 4. 팀 연락처 저장 (team.vcf) -->
+          <!-- GitHub /vcards/team.vcf 파일과 연결 -->
+          <a href="vcards/team.vcf" class="btn btn-primary">
+            📇 <span>팀 연락처 저장</span>
           </a>
         </div>
       </div>
@@ -332,11 +372,74 @@
       <div class="section">
         <div class="section-title">제공 서비스</div>
         <div class="chips">
-          <div class="chip">아파트·오피스텔 관리사무소 전용 인터넷/IPTV</div>
+          <div class="chip">아파트·오피스텔 관리사무소 인터넷/IPTV</div>
           <div class="chip">산업단지 기업 통신 패키지</div>
-          <div class="chip">소상공인 매장 인터넷·전화</div>
-          <div class="chip">KT 하이오더/포스 연동 컨설팅</div>
-          <div class="chip">기존 회선 재약정·비용 절감 진단</div>
+          <div class="chip">소상공인 매장 인터넷·전화·POS·하이오더</div>
+          <div class="chip">기존 회선 진단 · 재약정 · 비용 절감 컨설팅</div>
+        </div>
+      </div>
+
+      <!-- 팀 명함 섹션 -->
+      <div class="section">
+        <div class="section-title">팀 연락처</div>
+        <p class="team-intro">
+          아래 담당자 중 편하신 분께 직접 연락 주셔도 되고,<br />
+          상단의 <strong>팀 연락처 저장</strong> 버튼으로 한 번에 연락처를 저장하실 수도 있습니다.
+        </p>
+        <div class="team-grid">
+          <!-- 1. 김현태 센터장 -->
+          <div class="team-card">
+            <div class="team-top">
+              <div class="team-name">김현태</div>
+              <div class="team-role">센터장</div>
+            </div>
+            <div class="team-phone">📞 <a href="tel:01045830663">010-4583-0663</a></div>
+          </div>
+
+          <!-- 2. 박병규 차장 -->
+          <div class="team-card">
+            <div class="team-top">
+              <div class="team-name">박병규</div>
+              <div class="team-role">차장</div>
+            </div>
+            <div class="team-phone">📞 <a href="tel:01033330859">010-3333-0859</a></div>
+          </div>
+
+          <!-- 3. 서동환 과장 -->
+          <div class="team-card">
+            <div class="team-top">
+              <div class="team-name">서동환</div>
+              <div class="team-role">과장</div>
+            </div>
+            <div class="team-phone">📞 <a href="tel:01088713121">010-8871-3121</a></div>
+          </div>
+
+          <!-- 4. 김영훈 과장 -->
+          <div class="team-card">
+            <div class="team-top">
+              <div class="team-name">김영훈</div>
+              <div class="team-role">과장</div>
+            </div>
+            <div class="team-phone">📞 <a href="tel:01082909971">010-8290-9971</a></div>
+          </div>
+
+          <!-- 5. 장준성 과장 -->
+          <div class="team-card">
+            <div class="team-top">
+              <div class="team-name">장준성</div>
+              <div class="team-role">과장</div>
+            </div>
+            <div class="team-phone">📞 <a href="tel:01062847934">010-6284-7934</a></div>
+          </div>
+
+          <!-- 6. 도승현 대리 -->
+          <div class="team-card">
+            <div class="team-top">
+              <div class="team-name">도승현</div>
+              <div class="team-role">대리</div>
+            </div>
+            <div class="team-phone">📞 <a href="tel:01090369952">010-9036-9952</a></div>
+          </div>
         </div>
       </div>
 
@@ -344,16 +447,16 @@
       <div class="section">
         <div class="section-title">안내</div>
         <p class="notes">
-          위 버튼으로 연락처를 저장해 두시면, <br />설치 일정 조율·요금 상담·추가 문의를 편하게 도와드리겠습니다.<br />
-          <br />
-          통화가 어려우신 경우에는 <strong>카카오 상담</strong> 또는 <strong>상담·견적 요청</strong> 버튼을 통해<br />
-          간단히 남겨 주시면, 확인 후 우선적으로 연락드리겠습니다.
+          설치 일정 조율, 요금 비교, 기존 회선 점검이 필요하시면<br />
+          상단 버튼 중 편한 채널을 통해 연락 남겨 주시면 됩니다.<br /><br />
+          특히 <strong>팀 연락처 저장</strong>을 해두시면,<br />
+          추후 입주 문의·증설·이전 설치 시 바로 담당자에게 연락하실 수 있습니다.
         </p>
       </div>
 
       <div class="footer">
-        본 페이지는 KT 대경법인 영업담당자의 안내를 위해 제공되며, 상담 요청 시 <br />수집되는 정보는
-        통신 상품 안내 및 설치 상담 외의 목적으로 사용되지 않습니다.
+        본 페이지는 KT M&S 대구프론티어의 통신 상품 안내를 위해 제공되며,<br />
+        상담 요청 시 수집되는 정보는 통신 상품 안내 및 설치 상담 외의 목적으로 사용되지 않습니다.
       </div>
     </div>
   </div>
