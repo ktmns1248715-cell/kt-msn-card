@@ -1,473 +1,406 @@
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>KT M&S 대구프론티어 · 디지털 명함</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="KT M&S 대구프론티어 디지털 명함. 대구·경북 아파트·오피스텔·산업단지·소상공인 통신 컨설팅 센터." />
-  <style>
-    :root {
-      --primary: #e60012;
-      --primary-dark: #b0000e;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-sub: #475569;
-      --border: #e2e8f0;
-      --accent: #ea580c;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
-      background: radial-gradient(circle at top, #f1f5f9 0, #e2e8f0 70%, #cbd5e1 100%);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 20px 16px 40px;
-    }
-    .wrapper { width: 100%; max-width: 480px; }
-    .card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      padding: 22px 18px 20px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 20px 40px -5px rgba(0, 0, 0, 0.08);
-      backdrop-filter: blur(20px);
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid #bdf4c5;
-      background: #f0fdf4;
-      font-size: 11px;
-      color: #15803d;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .badge-dot { width: 6px; height: 6px; border-radius: 999px; background: #22c55e; }
+<meta charset="UTF-8" />
+<title>KT M&S 대구프론티어 · 디지털 명함</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="KT M&S 대구프론티어 디지털 명함. 대구·경북 아파트·오피스텔·산업단지·소상공인 통신 컨설팅 센터." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2') format('woff2-variations');
+    font-weight: 45 920;
+  }
 
-    .header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-    .avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px;
-    }
-    .profile-main { flex: 1; }
+  :root{
+    --bg:#f4f5f9;
+    --surface:#ffffff;
+    --surface-2:#f3f4f8;
+    --line:rgba(15,23,42,.08);
+    --line-strong:rgba(15,23,42,.14);
+    --ink:#12141c;
+    --ink-sub:#5b6478;
+    --ink-dim:#8a90a2;
+    --kt:#e01020;
+    --kt-bright:#d81028;
+    --kt-dim:#8c0b17;
+    --kakao:#f6de00;
+  }
 
-    .name { font-size: 18px; font-weight: 700; color: var(--text-main); }
-    .org, .title { font-size: 12px; color: var(--text-sub); }
-    .org { font-weight: 600; color: var(--primary); margin-top: 2px; }
-    .tagline { font-size: 11px; color: #64748b; margin-top: 6px; line-height: 1.4; }
+  *{box-sizing:border-box;margin:0;padding:0}
 
-    .section { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
-    .section-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--text-main); }
+  html{background:var(--bg)}
 
-    .contact-list { list-style: none; font-size: 13px; color: var(--text-main); }
-    .contact-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-    .contact-label { width: 60px; font-size: 11px; color: #94a3b8; font-weight: 600; }
-    .contact-item a { color: var(--text-main); text-decoration: none; border-bottom: 1px solid #cbd5e1; }
+  body{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif;
+    background:
+      radial-gradient(ellipse 600px 320px at 50% -10%, rgba(224,16,32,.07), transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    min-height:100vh;
+    padding:36px 16px 56px;
+    display:flex;
+    justify-content:center;
+    -webkit-font-smoothing:antialiased;
+  }
 
-    .btn-grid-2x2 {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;
-    }
-    .btn-grid-2 {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;
-    }
+  .container{width:100%;max-width:420px;display:flex;flex-direction:column;gap:28px}
 
-    .btn {
-      display: inline-flex; justify-content: center; align-items: center;
-      padding: 9px 10px; border-radius: 999px; font-size: 12px;
-      border: 1px solid transparent; cursor: pointer;
-      text-decoration: none; transition: background 0.2s, transform 0.1s;
-    }
-    .btn:active { transform: scale(0.98); }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #ffffff; font-weight: 600;
-      box-shadow: 0 4px 12px rgba(230, 0, 18, 0.2);
-    }
-    .btn-secondary { 
-      background: #e2e8f0; 
-      color: #334155; 
-      font-weight: 600;
-    }
-    .btn-outline { 
-      background: #ffffff; 
-      border-color: #cbd5e1; 
-      color: #475569;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
+  ::selection{background:var(--kt);color:#fff}
 
-    .team-grid { display: grid; gap: 8px; }
+  /* ---------- profile ---------- */
+  .profile{
+    position:relative;
+    text-align:center;
+    padding:38px 20px 28px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 1px 2px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.05);
+  }
+  .profile::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image:radial-gradient(ellipse 320px 200px at 50% 0%, black, transparent 75%);
+    opacity:.5;
+  }
+  .signal{
+    position:relative;
+    width:56px;height:56px;
+    margin:0 auto 18px;
+    border-radius:16px;
+    background:var(--surface-2);
+    border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .signal svg{width:28px;height:28px}
+  .profile h1{position:relative;font-size:19px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  .profile .badge{
+    position:relative;
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11.5px;font-weight:600;color:var(--kt-bright);
+    background:rgba(236,28,46,.1);
+    border:1px solid rgba(236,28,46,.28);
+    padding:5px 12px;border-radius:100px;
+    margin-bottom:14px;
+  }
+  .badge .dot{width:5px;height:5px;border-radius:50%;background:var(--kt-bright);box-shadow:0 0 6px var(--kt-bright)}
+  .profile .scope{position:relative;font-size:13px;color:var(--ink-sub);letter-spacing:.01em}
+  .profile .divider{position:relative;width:32px;height:1px;background:var(--line-strong);margin:16px auto}
+  .profile .desc{position:relative;font-size:12.5px;color:var(--ink-dim);line-height:1.65}
 
-    .team-card {
-      background: #f8fafc;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.01);
-      transition: background 0.2s;
-    }
-    .team-card:hover { background: #f1f5f9; }
-    .team-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-    .team-top b { font-size: 13px; color: var(--text-main); }
-    .tap-hint { font-size: 11px; color: #94a3b8; }
-    .team-card-tel { font-size: 13px; color: var(--text-sub); text-decoration: none; }
-    .team-card-tel a { color: var(--text-sub); text-decoration: none; font-weight: 600; }
+  /* ---------- section label ---------- */
+  .label{
+    display:flex;align-items:center;gap:8px;
+    font-size:11px;font-weight:600;color:var(--ink-dim);
+    letter-spacing:.06em;text-transform:uppercase;
+    padding:0 2px;margin-bottom:12px;
+  }
+  .label svg{width:13px;height:13px;color:var(--kt-bright)}
 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-    .chip {
-      font-size: 11px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      color: #475569;
-      line-height: 1.3;
-    }
+  /* ---------- action list ---------- */
+  .actions{display:flex;flex-direction:column;gap:8px}
 
-    .footer {
-      margin-top: 18px;
-      font-size: 11px;
-      line-height: 1.6;
-      color: #64748b;
-      background: #f8fafc;
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-    }
-    .footer strong { color: var(--primary); }
+  .btn{
+    display:flex;align-items:center;gap:12px;
+    width:100%;padding:15px 16px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    color:var(--ink);
+    font-size:13.5px;font-weight:600;
+    text-decoration:none;
+    box-shadow:0 1px 2px rgba(15,23,42,.03);
+    transition:border-color .15s ease, transform .1s ease, background .15s ease;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn:hover{border-color:var(--line-strong);background:var(--surface-2)}
+  .btn .ico{
+    width:34px;height:34px;flex:none;
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--surface-2);
+    color:var(--ink-sub);
+  }
+  .btn .ico svg{width:17px;height:17px}
+  .btn .txt{flex:1;text-align:left}
+  .btn .sub{display:block;font-size:11px;font-weight:500;color:var(--ink-dim);margin-top:1px}
+  .btn .arrow{width:14px;height:14px;color:var(--ink-dim);flex:none}
 
-    /* ▶ 모바일 최적화 (가로 480px 이하) */
-    @media (max-width: 480px) {
-      body { padding: 16px 10px 28px; }
-      .card { padding: 18px 14px 18px; border-radius: 18px; }
-      .avatar { width: 48px; height: 48px; }
-      .name { font-size: 16px; }
-      .org, .title { font-size: 11px; }
-      .tagline { font-size: 10px; }
-      .btn { padding: 8px 8px; font-size: 11px; }
-      .team-card { padding: 10px 12px; }
-      .section { margin-top: 16px; padding-top: 12px; }
-    }
-    
-    @media (max-width: 380px) {
-      .btn-grid-2x2 { grid-template-columns: 1fr; }
-      .btn-grid-2 { grid-template-columns: 1fr; }
-    }
+  .btn-kakao .ico{background:var(--kakao);color:#3c1e1e}
+  .btn-kakao{border-color:rgba(246,222,0,.22)}
 
-    /* ✅ 네임카드(바텀시트) - 라이트모드 스타일링 */
-    .nc-overlay{
-      position: fixed; inset: 0;
-      background: rgba(15, 23, 42, 0.4);
-      opacity: 0; pointer-events: none;
-      transition: .2s;
-      z-index: 999;
-      backdrop-filter: blur(4px);
-    }
-    .nc-overlay.open{ opacity: 1; pointer-events: auto; }
+  .btn-hero{
+    background:linear-gradient(135deg,var(--kt-bright),var(--kt-dim));
+    border:none;
+  }
+  .btn-hero .ico{background:rgba(255,255,255,.16);color:#fff}
+  .btn-hero .sub{color:rgba(255,255,255,.75)}
+  .btn-hero .arrow{color:rgba(255,255,255,.75)}
 
-    .nc-sheet{
-      position: fixed; left: 50%; bottom: -110%;
-      transform: translateX(-50%);
-      width: min(520px, calc(100% - 20px));
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 24px;
-      padding: 16px 16px 20px;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-      transition: .25s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1000;
-    }
-    .nc-sheet.open{ bottom: 12px; }
+  .btn-outline{background:transparent}
 
-    /* 바텀시트 상단 핸들러 */
-    .nc-sheet::before {
-      content: ''; display: block; width: 36px; height: 4px; 
-      background: #cbd5e1; border-radius: 999px; margin: 0 auto 10px;
-    }
+  /* ---------- call grid ---------- */
+  .call-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .call-card{
+    display:flex;flex-direction:column;gap:10px;
+    padding:16px 14px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    text-decoration:none;color:var(--ink);
+    box-shadow:0 1px 2px rgba(15,23,42,.03);
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .call-card:hover{border-color:var(--line-strong);background:var(--surface-2)}
+  .call-card .ico{width:30px;height:30px;border-radius:9px;background:rgba(236,28,46,.12);color:var(--kt-bright);display:flex;align-items:center;justify-content:center}
+  .call-card .ico svg{width:15px;height:15px}
+  .call-card .name{font-size:12.5px;font-weight:600}
+  .call-card .num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-sub);font-weight:500;letter-spacing:.01em}
 
-    .nc-close{
-      position:absolute; right: 14px; top: 14px;
-      background: #f1f5f9; border: 0; width: 24px; height: 24px;
-      border-radius: 999px; color: #64748b; font-size: 12px; 
-      cursor:pointer; display: flex; align-items: center; justify-content: center;
-    }
+  /* ---------- services ---------- */
+  .services{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:6px;
+    box-shadow:0 1px 2px rgba(15,23,42,.03);
+  }
+  .service-row{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:14px 12px;
+    border-bottom:1px solid var(--line);
+  }
+  .service-row:last-child{border-bottom:none}
+  .service-row .ico{width:26px;height:26px;flex:none;border-radius:8px;background:var(--surface-2);color:var(--kt-bright);display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .service-row .ico svg{width:14px;height:14px}
+  .service-row p{font-size:12.5px;color:var(--ink-sub);line-height:1.5}
 
-    .nc-head{ display:flex; gap: 12px; align-items:center; padding-top: 4px; }
-    .nc-photo{
-      width: 56px; height: 56px; border-radius: 16px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      display:flex; align-items:center; justify-content:center;
-      overflow:hidden;
-    }
-    .nc-photo img{ width:100%; height:100%; object-fit:cover; }
-    .nc-initial{ font-weight: 800; color: #475569; font-size: 18px; }
+  /* ---------- team ---------- */
+  .team{display:flex;flex-direction:column;gap:8px}
+  .team-row{
+    display:flex;align-items:center;gap:12px;
+    padding:14px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 1px 2px rgba(15,23,42,.03);
+  }
+  .avatar{
+    position:relative;
+    width:42px;height:42px;flex:none;
+    border-radius:12px;
+    background:var(--surface-2);
+    border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:700;color:var(--ink-sub);
+    letter-spacing:-.02em;
+  }
+  .avatar .ping{position:absolute;bottom:-2px;right:-2px;width:9px;height:9px;border-radius:50%;background:#2fd66a;border:2px solid var(--surface)}
+  .team-info{flex:1;min-width:0}
+  .team-name-row{display:flex;align-items:baseline;gap:6px;margin-bottom:2px}
+  .team-name-row b{font-size:13.5px;font-weight:700}
+  .team-name-row span{font-size:10.5px;color:var(--kt-bright);font-weight:600;background:rgba(236,28,46,.1);padding:1px 7px;border-radius:100px}
+  .team-desc{font-size:11px;color:var(--ink-dim);line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .team-actions{display:flex;gap:6px;flex:none}
+  .action-btn{
+    width:36px;height:36px;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;
+    border:1px solid var(--line);
+    background:var(--surface-2);
+    color:var(--ink-sub);
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .action-btn svg{width:15px;height:15px}
+  .action-btn:active{transform:scale(.94)}
+  .action-btn.call{background:rgba(236,28,46,.1);border-color:rgba(236,28,46,.24);color:var(--kt-bright)}
 
-    .nc-meta{ flex:1; }
-    .nc-name{ font-size:16px; font-weight:800; color: var(--text-main); }
-    .nc-role{ font-size:12px; color: var(--text-sub); margin-top: 2px; }
-    .nc-sub{ font-size:11px; color: var(--accent); margin-top: 4px; line-height:1.35; font-weight: 600; }
-
-    .nc-actions{
-      display:grid; grid-template-columns: 1fr 1fr; gap: 8px;
-      margin-top: 14px;
-    }
-    .nc-info{
-      margin-top: 14px;
-      font-size: 12px;
-      color: var(--text-main);
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
-    }
-    .nc-label{ display:inline-block; width: 56px; color:#94a3b8; font-weight: 600; }
-    .nc-info a { color: var(--text-main); text-decoration: none; }
-  </style>
+  /* ---------- footer ---------- */
+  .footer{
+    text-align:center;padding:22px 12px 4px;
+    border-top:1px solid var(--line);
+  }
+  .footer .org{font-size:12px;font-weight:600;color:var(--ink-sub);margin-bottom:6px}
+  .footer .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-dim);letter-spacing:.01em;line-height:1.8}
+  .footer .note{font-size:10.5px;color:var(--ink-dim);line-height:1.7;margin-top:14px}
+  .footer .note strong{color:var(--kt-bright);font-weight:600}
+</style>
 </head>
-
 <body>
-  <div class="wrapper">
-    <div class="card">
 
-      <div class="badge"><span class="badge-dot"></span>실시간 통신 컨설팅 가능</div>
+<div class="container">
 
-      <div class="header">
-        <div class="avatar">
-          <img src="images/mns.png" alt="KT Logo" style="width:100%; height:100%; object-fit:contain;">
+  <header class="profile">
+    <div class="signal" aria-hidden="true">
+      <img src="images/mns.png" alt="KT Logo" style="width:100%;height:100%;object-fit:contain;border-radius:16px;">
+    </div>
+    <h1>KT M&amp;S 대구프론티어센터</h1>
+    <div class="badge"><span class="dot"></span>대구·경북 통합컨설팅 센터</div>
+    <div class="scope">아파트 · 오피스텔 · 산단 · 소상공인 전담</div>
+    <div class="divider"></div>
+    <p class="desc">인터넷 · 전화 · IPTV · 하이오더까지<br>한 번에 비교하고 진단하여 설치까지 도와드립니다.</p>
+  </header>
+
+  <section>
+    <div class="label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      빠른 상담 및 신청
+    </div>
+    <div class="actions">
+      <a class="btn btn-kakao" href="http://pf.kakao.com/_xaXbrn/chat" target="_blank">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.79 1.85 5.24 4.65 6.66-.15.55-.96 3.42-.99 3.64 0 0-.02.17.09.24.11.07.24.02.24.02.32-.05 3.7-2.44 4.28-2.85.57.08 1.15.13 1.73.13 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg></span>
+        <span class="txt">실시간 카카오톡 채팅상담<span class="sub">평균 응답 5분 이내</span></span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a class="btn btn-outline" href="http://pf.kakao.com/_xaXbrn" target="_blank">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 100-16 8 8 0 000 16z"/><path d="M12 8v4l3 2"/></svg></span>
+        <span class="txt">공식 카카오채널 추가</span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <!-- 📝 요청하신 부분: 링크 주소를 변경했습니다 -->
+      <a class="btn btn-outline" href="https://kt-mns.com/page-3" target="_blank">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+        <span class="txt">온라인 상담 &amp; 견적 신청</span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a class="btn btn-hero" href="vcards/team.vcf">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span>
+        <span class="txt">센터 전직원 연락처 저장<span class="sub">한 번에 vCard로 저장</span></span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      전담 고객센터 원클릭 연결
+    </div>
+    <div class="call-grid">
+      <a class="call-card" href="tel:15883282">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 18h.01"/></svg></span>
+        <span class="name">테이블오더(하이오더)<br>전담센터</span>
+        <span class="num">1588-3282</span>
+      </a>
+      <a class="call-card" href="tel:100">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+        <span class="name">인터넷 장애<br>/ A&amp;S 접수</span>
+        <span class="num">국번없이 100</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+      제공 비즈니스 서비스
+    </div>
+    <div class="services">
+      <div class="service-row">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9v.01M9 13v.01M9 17v.01M15 9v.01M15 13v.01M15 17v.01"/></svg></span>
+        <p>아파트·오피스텔·임대업 제휴 인터넷/IPTV</p>
+      </div>
+      <div class="service-row">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></span>
+        <p>산업단지·법인기업 모바일&amp;인터넷 임직원 특판 패키지</p>
+      </div>
+      <div class="service-row">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg></span>
+        <p>소상공인·프랜차이즈 매장 인터넷·전화·POS·하이오더·보안</p>
+      </div>
+      <div class="service-row">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6M3 12a9 9 0 0115-6.7L21 8M3 22v-6h6M21 12a9 9 0 01-15 6.7L3 16"/></svg></span>
+        <p>기존 회선 진단 · 재약정 · 통신비용 절감 컨설팅</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      전담 팀원 다이렉트 연결
+    </div>
+    <div class="team">
+
+      <div class="team-row">
+        <div class="avatar">김<span class="ping"></span></div>
+        <div class="team-info">
+          <div class="team-name-row"><b>김현태</b><span>센터장</span></div>
+          <div class="team-desc">대구·경북 총괄 / 프랜차이즈 제휴 문의</div>
         </div>
-        <div class="profile-main">
-          <div class="name">KT M&S 대구프론티어센터</div>
-          <div class="org">대구·경북 통합컨설팅 센터</div>
-          <div class="title">아파트·오피스텔·산단·소상공인 전담</div>
-          <div class="tagline">인터넷 · 전화 · IPTV · 하이오더까지<br>한 번에 비교·진단·설치까지 도와드립니다.</div>
+        <div class="team-actions">
+          <a class="action-btn call" href="tel:01045830663" aria-label="전화 걸기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+          <a class="action-btn" href="vcards/kimhyuntae.vcf" aria-label="연락처 저장"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></a>
         </div>
       </div>
 
-      <div class="section">
-        <div class="section-title">센터 정보</div>
-        <ul class="contact-list">
-          <li class="contact-item"><div class="contact-label">이메일</div><a href="mailto:1248715@ktmns.com">1248715@ktmns.com</a></li>
-          <li class="contact-item"><div class="contact-label">홈페이지</div><a href="https://kt-mns.com" target="_blank">https://kt-mns.com</a></li>
-          <li class="contact-item"><div class="contact-label">지역</div>대구·경북 전 지역</li>
-        </ul>
-
-        <div class="btn-grid-2x2">
-          <a class="btn btn-outline" href="http://pf.kakao.com/_xaXbrn" target="_blank">💬 공식 카카오채널</a>
-          <a class="btn btn-secondary" href="http://pf.kakao.com/_xaXbrn/chat" target="_blank">💬 실시간 채팅상담</a>
-          <a class="btn btn-outline" href="https://kt-mns.com" target="_blank">📝 상담 & 견적신청</a>
-          <a class="btn btn-primary" href="vcards/team.vcf">📇 연락처 전체저장</a>
+      <div class="team-row">
+        <div class="avatar">박<span class="ping"></span></div>
+        <div class="team-info">
+          <div class="team-name-row"><b>박병규</b><span>차장</span></div>
+          <div class="team-desc">산업단지·법인 특판 / 하이오더 도입 컨설팅</div>
         </div>
-
-        <div class="btn-grid-2">
-          <a class="btn btn-outline" href="tel:15883282">📞 하이오더 전담센터</a>
-          <a class="btn btn-outline" href="tel:100">📞 인터넷 장애접수</a>
+        <div class="team-actions">
+          <a class="action-btn call" href="tel:01033330859" aria-label="전화 걸기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+          <a class="action-btn" href="vcards/parkbyungkyu.vcf" aria-label="연락처 저장"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></a>
         </div>
       </div>
 
-      <div class="section">
-        <div class="section-title">제공 서비스</div>
-        <div class="chips">
-          <div class="chip">아파트·오피스텔·임대업 제휴 인터넷/IPTV</div>
-          <div class="chip">산업단지·법인기업 모바일&인터넷 임직원 특판 패키지 혜택</div>
-          <div class="chip">소상공인·프랜차이즈 매장 인터넷·전화·POS·하이오더·출동보안</div>
-          <div class="chip">기존 회선 진단 · 재약정 · 비용 절감 컨설팅</div>
+      <div class="team-row">
+        <div class="avatar">서<span class="ping"></span></div>
+        <div class="team-info">
+          <div class="team-name-row"><b>서동환</b><span>과장</span></div>
+          <div class="team-desc">아파트·오피스텔 단체제휴 / 회선 무료 진단</div>
+        </div>
+        <div class="team-actions">
+          <a class="action-btn call" href="tel:01088713121" aria-label="전화 걸기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+          <a class="action-btn" href="vcards/seodonghwan.vcf" aria-label="연락처 저장"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></a>
         </div>
       </div>
 
-      <div class="section">
-        <div class="section-title">팀 연락처</div>
-        <div class="team-grid">
-
-          <!-- 김현태 센터장 -->
-          <div class="team-card" onclick="openNC({
-            name:'김현태',
-            role:'센터장',
-            tel:'010-4583-0663',
-            vcf:'vcards/kimhyuntae.vcf',
-            sub:'대구·경북 전지역 총괄 / 프랜차이즈 B2B 업무협약 및 제휴 문의',
-            photo:''
-          })">
-            <div class="team-top">
-              <b>김현태 센터장</b>
-              <span class="tap-hint">눌러서 정보보기</span>
-            </div>
-            <div class="team-card-tel">📞 <a href="tel:01045830663" onclick="event.stopPropagation();">010-4583-0663</a></div>
-          </div>
-
-          <!-- 박병규 차장 -->
-          <div class="team-card" onclick="openNC({
-            name:'박병규',
-            role:'차장',
-            tel:'010-3333-0859',
-            vcf:'vcards/parkbyungkyu.vcf',
-            sub:'산업단지·법인 맞춤형 특판 / 하이오더(테이블오더) 도입 컨설팅',
-            photo:''
-          })">
-            <div class="team-top">
-              <b>박병규 차장</b>
-              <span class="tap-hint">눌러서 정보보기</span>
-            </div>
-            <div class="team-card-tel">📞 <a href="tel:01033330859" onclick="event.stopPropagation();">010-3333-0859</a></div>
-          </div>
-
-          <!-- 서동환 과장 -->
-          <div class="team-card" onclick="openNC({
-            name:'서동환',
-            role:'과장',
-            tel:'010-8871-3121',
-            vcf:'vcards/seodonghwan.vcf',
-            sub:'아파트·오피스텔 단체제휴 / 기존 회선 무료 진단 및 재약정 센터',
-            photo:''
-          })">
-            <div class="team-top">
-              <b>서동환 과장</b>
-              <span class="tap-hint">눌러서 정보보기</span>
-            </div>
-            <div class="team-card-tel">📞 <a href="tel:01088713121" onclick="event.stopPropagation();">010-8871-3121</a></div>
-          </div>
-
-          <!-- 김영훈 과장 -->
-          <div class="team-card" onclick="openNC({
-            name:'김영훈',
-            role:'과장',
-            tel:'010-8290-9971',
-            vcf:'vcards/kimyounghoon.vcf',
-            sub:'소상공인 대박매장 패키지 / 기업 맞춤형 통신 특판 설계 전문',
-            photo:''
-          })">
-            <div class="team-top">
-              <b>김영훈 과장</b>
-              <span class="tap-hint">눌러서 정보보기</span>
-            </div>
-            <div class="team-card-tel">📞 <a href="tel:01082909971" onclick="event.stopPropagation();">010-8290-9971</a></div>
-          </div>
-
-          <!-- 장준성 과장 -->
-          <div class="team-card" onclick="openNC({
-            name:'장준성',
-            role:'과장',
-            tel:'010-6284-7934',
-            vcf:'vcards/jangjunsung.vcf',
-            sub:'프랜차이즈·오피스텔 전문 / 통신비 최대 절감 설계 컨설턴트',
-            photo:''
-          })">
-            <div class="team-top">
-              <b>장준성 과장</b>
-              <span class="tap-hint">눌러서 정보보기</span>
-            </div>
-            <div class="team-card-tel">📞 <a href="tel:01062847934" onclick="event.stopPropagation();">010-6284-7934</a></div>
-          </div>
-
+      <div class="team-row">
+        <div class="avatar">김<span class="ping"></span></div>
+        <div class="team-info">
+          <div class="team-name-row"><b>김영훈</b><span>과장</span></div>
+          <div class="team-desc">소상공인 대박매장 패키지 / 기업 맞춤형 설계</div>
+        </div>
+        <div class="team-actions">
+          <a class="action-btn call" href="tel:01082909971" aria-label="전화 걸기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+          <a class="action-btn" href="vcards/kimyounghoon.vcf" aria-label="연락처 저장"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></a>
         </div>
       </div>
 
-      <div class="footer">
-        KT M&S 대구프론티어센터에서는<br>
-        대구·경북 개인/소상공인/법인사업체 등<br>
-        통신상품 비교·일정조율·설치까지<br>
-        원스톱 진행 전담부서를 운영합니다.<br><br>
-        개인정보는 상담 목적 외 타 용도로 사용되지 않습니다.<br>
-        특히 <strong>팀 연락처 저장</strong>을 해두시면,<br>
-        추후 이전·증설·입주 문의 시<br>
-        즉시 담당자와 연결됩니다.
+      <div class="team-row">
+        <div class="avatar">장<span class="ping"></span></div>
+        <div class="team-info">
+          <div class="team-name-row"><b>장준성</b><span>과장</span></div>
+          <div class="team-desc">프랜차이즈 전문 / 통신비 최대 절감 컨설턴트</div>
+        </div>
+        <div class="team-actions">
+          <a class="action-btn call" href="tel:01062847934" aria-label="전화 걸기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+          <a class="action-btn" href="vcards/jangjunsung.vcf" aria-label="연락처 저장"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></a>
+        </div>
       </div>
 
     </div>
-  </div>
+  </section>
 
-  <!-- ✅ 네임카드 모달(바텀시트) -->
-  <div id="ncOverlay" class="nc-overlay" aria-hidden="true"></div>
+  <footer class="footer">
+    <div class="org">KT M&amp;S 대구프론티어센터 원스톱 전담부서</div>
+    <div class="meta">1248715@ktmns.com<br>대구·경북 전 지역</div>
+    <p class="note">상담 목적 외에 개인정보는 사용되지 않습니다.<br>담당자별 <strong>연락처 저장 아이콘</strong>을 누르시면 즉시 저장됩니다.</p>
+  </footer>
 
-  <div id="ncSheet" class="nc-sheet" role="dialog" aria-modal="true" aria-hidden="true">
-    <button class="nc-close" type="button" onclick="closeNC()">✕</button>
+</div>
 
-    <div class="nc-head">
-      <div class="nc-photo" id="ncPhoto"></div>
-      <div class="nc-meta">
-        <div class="nc-name" id="ncName">이름</div>
-        <div class="nc-role" id="ncRole">직급</div>
-        <div class="nc-sub" id="ncSub">담당/설명</div>
-      </div>
-    </div>
-
-    <div class="nc-actions">
-      <a class="btn btn-primary" id="ncCall" href="#">📞 전화</a>
-      <a class="btn btn-secondary" id="ncSms" href="#">✉ 문자</a>
-      <a class="btn btn-outline" id="ncSave" href="#" download>📇 연락처 저장</a>
-      <a class="btn btn-outline" id="ncKakao" href="http://pf.kakao.com/_xaXbrn/chat" target="_blank">💬 카톡상담</a>
-    </div>
-
-    <div class="nc-info">
-      <div><span class="nc-label">연락처</span> <a id="ncTelText" href="#"></a></div>
-      <div><span class="nc-label">이메일</span> <a href="mailto:1248715@ktmns.com">1248715@ktmns.com</a></div>
-    </div>
-  </div>
-
-  <script>
-    const overlay = document.getElementById('ncOverlay');
-    const sheet = document.getElementById('ncSheet');
-
-    overlay.addEventListener('click', closeNC);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNC(); });
-
-    function openNC(d){
-      document.getElementById('ncName').textContent = (d.name || '') + (d.role ? (' ' + d.role) : '');
-      document.getElementById('ncRole').textContent = d.role || '';
-      document.getElementById('ncSub').textContent  = d.sub || '대구·경북 통신 컨설팅';
-
-      const telDigits = (d.tel || '').replace(/[^0-9]/g,'');
-      document.getElementById('ncCall').href = 'tel:' + telDigits;
-      document.getElementById('ncSms').href  = 'sms:' + telDigits;
-
-      const telText = document.getElementById('ncTelText');
-      telText.textContent = d.tel || '';
-      telText.href = 'tel:' + telDigits;
-
-      document.getElementById('ncSave').href = d.vcf || '#';
-
-      const photoWrap = document.getElementById('ncPhoto');
-      photoWrap.innerHTML = '';
-      if (d.photo) {
-        const img = document.createElement('img');
-        img.src = d.photo;
-        img.alt = (d.name || '') + ' photo';
-        photoWrap.appendChild(img);
-      } else {
-        const span = document.createElement('span');
-        span.className = 'nc-initial';
-        span.textContent = (d.name || '').slice(0,1);
-        photoWrap.appendChild(span);
-      }
-
-      overlay.classList.add('open');
-      sheet.classList.add('open');
-      overlay.setAttribute('aria-hidden','false');
-      sheet.setAttribute('aria-hidden','false');
-    }
-
-    function closeNC(){
-      overlay.classList.remove('open');
-      sheet.classList.remove('open');
-      overlay.setAttribute('aria-hidden','true');
-      sheet.setAttribute('aria-hidden','true');
-    }
-  </script>
 </body>
 </html>
