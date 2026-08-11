@@ -1,65 +1,108 @@
 BEGIN:VCARD
 VERSION:3.0
-N:김;현태;;;
-FN:김현태 센터장
-TITLE:센터장
-ORG:KT M&S 대구프론티어
-TEL;TYPE=CELL:010-4583-0663
-EMAIL;WORK:1248715@ktmns.com
-URL:https://kt-mns.com
+N:반;청용;;;
+FN:반청용 부장
+ORG:KT CS;대구센터
+TITLE:부장
+TEL;TYPE=CELL:010-3484-0709
+NOTE:대구·경북 총괄 / 통신 솔루션 종합 컨설팅
 END:VCARD
-
 BEGIN:VCARD
 VERSION:3.0
-N:박;병규;;;
-FN:박병규 차장
-TITLE:차장
-ORG:KT M&S 대구프론티어
-TEL;TYPE=CELL:010-3333-0859
-EMAIL;WORK:1248715@ktmns.com
-URL:https://kt-mns.com
+N:김;문신;;;
+FN:김문신 파트장
+ORG:KT CS;대구센터
+TITLE:파트장
+TEL;TYPE=CELL:010-5555-6031
+NOTE:기업 통신 총괄 / 법인 특판 컨설팅
 END:VCARD
-
 BEGIN:VCARD
 VERSION:3.0
-N:서;동환;;;
-FN:서동환 과장
+N:이;경태;;;
+FN:이경태 파트장
+ORG:KT CS;대구센터
+TITLE:파트장
+TEL;TYPE=CELL:010-2622-6222
+NOTE:특판 제휴 총괄 / 대형 단체회선 설계
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:곽;준섭;;;
+FN:곽준섭 과장
+ORG:KT CS;대구센터
 TITLE:과장
-ORG:KT M&S 대구프론티어
-TEL;TYPE=CELL:010-8871-3121
-EMAIL;WORK:1248715@ktmns.com
-URL:https://kt-mns.com
+TEL;TYPE=CELL:010-5015-9908
+NOTE:통신비용 절감 / 회선 진단 전문
 END:VCARD
-
+BEGIN:VCARD
+VERSION:3.0
+N:권;순일;;;
+FN:권순일 과장
+ORG:KT CS;대구센터
+TITLE:과장
+TEL;TYPE=CELL:010-5564-8610
+NOTE:소상공인·프랜차이즈 맞춤 컨설팅
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:김;영현;;;
+FN:김영현 과장
+ORG:KT CS;대구센터
+TITLE:과장
+TEL;TYPE=CELL:010-3214-0555
+NOTE:아파트·오피스텔 단체제휴 컨설팅
+END:VCARD
 BEGIN:VCARD
 VERSION:3.0
 N:김;영훈;;;
 FN:김영훈 과장
+ORG:KT CS;대구센터
 TITLE:과장
-ORG:KT M&S 대구프론티어
 TEL;TYPE=CELL:010-8290-9971
-EMAIL;WORK:1248715@ktmns.com
-URL:https://kt-mns.com
+NOTE:소상공인 대박매장 패키지 / 업무 자동화 컨설팅
 END:VCARD
-
 BEGIN:VCARD
 VERSION:3.0
-N:장;준성;;;
-FN:장준성 과장
+N:김;진;;;
+FN:김진 과장
+ORG:KT CS;대구센터
 TITLE:과장
-ORG:KT M&S 대구프론티어
-TEL;TYPE=CELL:010-6284-7934
-EMAIL;WORK:1248715@ktmns.com
-URL:https://kt-mns.com
+TEL;TYPE=CELL:010-9877-5479
+NOTE:산업단지·기업 전용회선 컨설팅
 END:VCARD
-
 BEGIN:VCARD
 VERSION:3.0
-N:도;승현;;;
-FN:도승현 대리
-TITLE:대리
-ORG:KT M&S 대구프론티어
-TEL;TYPE=CELL:010-9036-9952
-EMAIL;WORK:1248715@ktmns.com
-URL:https://kt-mns.com
+N:김;준엽;;;
+FN:김준엽 과장
+ORG:KT CS;대구센터
+TITLE:과장
+TEL;TYPE=CELL:010-3777-8560
+NOTE:하이오더 도입 / 매장 통신 시스템 구축
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:배;민혁;;;
+FN:배민혁 과장
+ORG:KT CS;대구센터
+TITLE:과장
+TEL;TYPE=CELL:010-6670-6870
+NOTE:기업 임직원 특판 / 결합 상품 안내
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:박;혜임;;;
+FN:박혜임 과장
+ORG:KT CS;대구센터
+TITLE:과장
+TEL;TYPE=CELL:010-3311-0340
+NOTE:소상공인 단체 가입 / 통신 컨설팅
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:홍;성희;;;
+FN:홍성희 과장
+ORG:KT CS;대구센터
+TITLE:과장
+TEL;TYPE=CELL:010-6727-9993
+NOTE:임대업·신축건물 통신 인프라 설계
 END:VCARD
