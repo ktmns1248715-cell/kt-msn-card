@@ -1,6 +1,6 @@
 BEGIN:VCARD
 VERSION:3.0
-N:과장;KT 김영훈;;;
+N:;;;;
 FN:KT 김영훈 과장
 ORG:KT CS 대구센터
 TEL;TYPE=CELL:010-8290-9971
@@ -8,5 +8,5 @@ TEL;TYPE=WORK:100
 TEL;TYPE=WORK,VOICE:114
 EMAIL;TYPE=INTERNET:tsmobile1@naver.com
 URL:http://www.kt-cs.com
-NOTE:소상공인 대박매장 패키지 / 업무 자동화 컨설팅
+NOTE:프랜차이즈,테이블오더 전문상담
 END:VCARD
